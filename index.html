@@ -2,97 +2,90 @@
 <html>
 
 <head>
-	<meta charset='utf-8'>
-	<!-- <link rel='stylesheet' type='text/css' href='style.css' /> -->
-	<title>D3 Vis</title>
+  <meta charset='utf-8'>
+  <!-- <link rel='stylesheet' type='text/css' href='style.css' /> -->
+  <title>D3 Vis</title>
 </head>
 <style>
-	body {
-		font-family: 'Roboto', sans-serif;
-	}
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
 
-	path {
-	  fill: #ccc;
-	  stroke: #fff;
-	  stroke-linejoin: round;
-	}
+  path {
+    fill: #ccc;
+    stroke: #fff;
+    stroke-linejoin: round;
+  }
 
-	.parent {
-		display: flex;
-		justify-content: center;
-		margin: 14em;
-	}
+  .parent {
+    display: flex;
+    justify-content: center;
+    margin: 14em;
+  }
 
-	p {
-		font-size: 2em;
-	}
+  p {
+    font-size: 2em;
+  }
 
-	.top {
-		/*display: flex;*/
-		/*flex-direction: row;*/
-		/*justify-content: space-between;*/
-		display: block;
-		height: 50px;
-	}
+  .top {
+    display: block;
+    height: 50px;
+  }
 
-	.controls {
-		padding-top: 10px;
-		/*border-right: 1px solid #000;*/
-		/*border-bottom: 1px solid #000;*/
-		/*padding-right: 1em;*/
-		/*margin-right: 1em;*/
-	}
+  .controls {
+    padding-top: 10px;
+  }
 
-	.source p{
-		font-size: 1em;
-		text-align: center;
-		margin: 0;
-	}
+  .source p{
+    font-size: 1em;
+    text-align: center;
+    margin: 0;
+  }
 
-	#heading {
-		font-size: 3em;
-		border-bottom: 1px solid #000;
-		margin-right: 1em;
-		padding-top: 0.5em;
+  #heading {
+    font-size: 3em;
+    border-bottom: 1px solid #000;
+    margin-right: 1em;
+    padding-top: 0.5em;
 
-	}
+  }
 </style>
 
 <body>
-	<div id='heading'>A look at the presence of missing data.</div>
-		<div class='top'>
-			<div class='controls'>
-				<input type='range' min='1970' max='2019' value='1970' id='mySlider'>
-				<p>Year: <span id='val'></span></p>
-			</div>
-			<div>
-				<div id='tooltip1'></div>
-			</div>
-		</div>
-	<div class='parent'>
-		<div class='vis1'>
-			<div class='chart'>
-				<svg id='gtdVis'></svg>
-				<div class='source'>
-					<p>University of Maryland START: Global Terrorism Database (1970-2017)</p>
-				</div>
-			</div>
-		</div>
-		<div class='vis2'>
-			<div class='chart'>
-				<svg id='shootingVis'></svg>
-				<div class='source'>
-					<p>Mother Jones: US Mass Shootings Database (1982-2019)</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div id='heading'>A look at the presence of missing data.</div>
+    <div class='top'>
+      <div class='controls'>
+        <input type='range' min='1970' max='2019' value='1970' id='mySlider'>
+        <p>Year: <span id='val'></span></p>
+      </div>
+      <div>
+        <div id='tooltip1'></div>
+      </div>
+    </div>
+  <div class='parent'>
+    <div class='vis1'>
+      <div class='chart'>
+        <svg id='gtdVis'></svg>
+        <div class='source'>
+          <p>University of Maryland START: Global Terrorism Database (1970-2017)</p>
+        </div>
+      </div>
+    </div>
+    <div class='vis2'>
+      <div class='chart'>
+        <svg id='shootingVis'></svg>
+        <div class='source'>
+          <p>Mother Jones: US Mass Shootings Database (1982-2019)</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- <svg width='960' height='500'></svg> -->
-	<script src='./js/d3.v5.min.js'></script>
-	<script src='//d3js.org/topojson.v1.min.js'></script>
-	<script src='js/gtdVis.js'></script>
-	<script src='js/shootingVis.js'></script>
+  <script src='./js/d3.v5.min.js'></script>
+  <script src='//d3js.org/topojson.v1.min.js'></script>
+  <script src='js/gtdVis.js'></script>
+  <script src='js/shootingVis.js'></script>
 </body>
 
 </html>

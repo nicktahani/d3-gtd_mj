@@ -17,8 +17,6 @@ function gtdVis () {
   
   slider.addEventListener('input', handleSliderChange)
 
-
-
   function handleSliderChange(event) {
     const year = event.target.value
     const filteredData = terrorismData.filter(d => {
@@ -30,6 +28,14 @@ function gtdVis () {
     })      
     chartData(filteredData)
   }
+
+  // const handleSliderChange = e => {
+  //   const year = e.target.value
+  //   const filteredData = terrorismData.filter(d => {
+  //     d.iyear == year ? true : false  
+  //   })      
+  //   chartData(filteredData)
+  // }
 
   const output = document.getElementById('val');
     output.innerHTML = slider.value

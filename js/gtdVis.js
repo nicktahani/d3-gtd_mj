@@ -14,28 +14,16 @@ function gtdVis () {
   //const svg = d3.select('svg')
 
   const slider = document.getElementById('mySlider')
-  
-  slider.addEventListener('input', handleSliderChange)
 
-  function handleSliderChange(event) {
-    const year = event.target.value
+  const handleSliderChange = e => {
+    const year = e.target.value
     const filteredData = terrorismData.filter(d => {
-      if (d.iyear == year) {
-        return true
-      } else {
-        return false
-      }
+      d.iyear == year ? true : false  
     })      
     chartData(filteredData)
   }
 
-  // const handleSliderChange = e => {
-  //   const year = e.target.value
-  //   const filteredData = terrorismData.filter(d => {
-  //     d.iyear == year ? true : false  
-  //   })      
-  //   chartData(filteredData)
-  // }
+  slider.addEventListener('input', handleSliderChange)
 
   const output = document.getElementById('val');
     output.innerHTML = slider.value

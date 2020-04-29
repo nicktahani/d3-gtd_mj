@@ -3,7 +3,7 @@ function shootingVis () {
   const width = 960 * 0.7;
     const height = 500;
 
-    const svg = d3.select("#shootingVis")
+    const svg = d3.select('#shootingVis')
       .attr('width', width)
       .attr('height', height)
       .append('g')
@@ -13,10 +13,8 @@ let shootingData = null
 
 //const svg = d3.select('svg')
 
-  const slider = document.getElementById("mySlider")
-    slider.addEventListener("input", handleSliderChange)
-
-
+  const slider = document.getElementById('mySlider')
+    slider.addEventListener('input', handleSliderChange)
 
   function handleSliderChange(event) {
     const Syear = event.target.value
@@ -30,7 +28,7 @@ let shootingData = null
     chartData(filteredData)
   }
 
-  const output = document.getElementById("val");
+  const output = document.getElementById('val');
     output.innerHTML = slider.value
 
   slider.oninput = function() {
@@ -53,8 +51,8 @@ let shootingData = null
 
     //console.log(terrorismData)
 
-    svg.append("path")
-      .attr("d", path(topojson.feature(us, us.objects.states)))
+    svg.append('path')
+      .attr('d', path(topojson.feature(us, us.objects.states)))
 
     chartData(data)
   }
@@ -86,19 +84,18 @@ let shootingData = null
       .attr('r', d => radius(d.properties.fatalities))
       .style('fill', 'red')
       .style('opacity', 0.5)
-      .on("mouseover", mouseover)
-      .on("mouseout", mouseout)
+      .on('mouseover', mouseover)
+      .on('mouseout', mouseout)
   }
 
-  const tooltip = d3.select("#tooltip1")
-    .attr("class", "tooltip")
-    // .style("display", "none");
+  const tooltip = d3.select('#tooltip1')
+    .attr('class', 'tooltip')
+    // .style('display', 'none');
 
   function mouseover(d) {
-
-    tooltip.style("display", "inline");
     tooltip
-        .html("Fatalities: " + d.properties.fatalities + "<br>Location: " + d.properties.location + "<br>Description: " + d.properties.summary)
+      .style('display', 'inline')
+      .html('Fatalities: ' + d.properties.fatalities + '<br>Location: ' + d.properties.location + '<br>Description: ' + d.properties.summary)
         // .style('left', `${x}px`)
         // .style('top', `${y}px`)
         // .style('transform', d3.select(this).style('transform'))
@@ -107,7 +104,7 @@ let shootingData = null
 
 
 function mouseout() {
-  tooltip.style("display", "none");
+  tooltip.style('display', 'none');
 }
 }
 

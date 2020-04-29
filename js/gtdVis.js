@@ -14,15 +14,6 @@ function gtdVis () {
   //const svg = d3.select('svg')
 
   const slider = document.getElementById('mySlider')
-
-  const handleSliderChange = e => {
-    const year = e.target.value
-    const filteredData = terrorismData.filter(d => {
-      d.iyear == year ? true : false  
-    })      
-    chartData(filteredData)
-  }
-
   slider.addEventListener('input', handleSliderChange)
 
   const output = document.getElementById('val');
@@ -30,6 +21,18 @@ function gtdVis () {
 
   slider.oninput = function() {
     output.innerHTML = this.value
+  }
+
+  function handleSliderChange(event) {
+    const year = event.target.value
+    const filteredData = terrorismData.filter(d => {
+      if (d.iyear == year) {
+        return true
+      } else {
+        return false
+      }
+    })      
+    chartData(filteredData)
   }
 
   const proj = d3.geoAlbers()
@@ -48,8 +51,8 @@ function gtdVis () {
 
     //console.log(terrorismData)
 
-    svg.append("path")
-      .attr("d", path(topojson.feature(us, us.objects.states)))
+    svg.append('path')
+      .attr('d', path(topojson.feature(us, us.objects.states)))
 
     chartData(data)
   }
@@ -65,6 +68,8 @@ function gtdVis () {
         properties: d
       }
     })
+
+    console.log(points)
 
 
     const radius = d3.scaleSqrt()
@@ -87,11 +92,11 @@ function gtdVis () {
 
   const tooltip = d3.select('#tooltip1')
     .attr('class', 'tooltip')
-    // .style("display", "none");
+    // .style('display', 'none');
 
   function mouseover(d) {
-    tooltip.style('display', 'inline');
     tooltip
+      .style('display', 'inline')
       .html('Fatalities: '  + d.properties.nkill + '<br>Location: ' + d.properties.city + ', ' + d.properties.provstate + '<br>Description: ' + d.properties.summary)
 
   }

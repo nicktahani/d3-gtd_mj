@@ -9,22 +9,16 @@ function shootingVis () {
       .append('g')
       .attr('transform', 'scale(0.7)')
 
-let shootingData = null
+  let shootingData = null
 
 //const svg = d3.select('svg')
 
   const slider = document.getElementById('mySlider')
     slider.addEventListener('input', handleSliderChange)
 
-  function handleSliderChange(event) {
-    const Syear = event.target.value
-    const filteredData = shootingData.filter(d => {
-      if (d.year == Syear) {
-        return true
-      } else {
-        return false
-      }
-    })      
+  function handleSliderChange(e) {
+    const ShootingYear = e.target.value
+    const filteredData = shootingData.filter(d => d.year === ShootingYear)      
     chartData(filteredData)
   }
 
@@ -99,13 +93,12 @@ let shootingData = null
         // .style('left', `${x}px`)
         // .style('top', `${y}px`)
         // .style('transform', d3.select(this).style('transform'))
+  }
 
-}
 
-
-function mouseout() {
-  tooltip.style('display', 'none');
-}
+  function mouseout() {
+    tooltip.style('display', 'none');
+  }
 }
 
 shootingVis()

@@ -23,15 +23,9 @@ function gtdVis () {
     output.innerHTML = this.value
   }
 
-  function handleSliderChange(event) {
-    const year = event.target.value
-    const filteredData = terrorismData.filter(d => {
-      if (d.iyear == year) {
-        return true
-      } else {
-        return false
-      }
-    })      
+  function handleSliderChange(e) {
+    const year = e.target.value
+    const filteredData = terrorismData.filter(d => d.iyear === year)           
     chartData(filteredData)
   }
 

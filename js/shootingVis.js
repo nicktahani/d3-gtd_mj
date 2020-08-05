@@ -1,7 +1,7 @@
 function shootingVis () {
 
   const width = 960 * 0.7;
-    const height = 500;
+    const height = 400;
 
     const svg = d3.select('#shootingVis')
       .attr('width', width)

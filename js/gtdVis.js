@@ -1,7 +1,7 @@
 function gtdVis () {
 
   const width = 960 * 0.7;
-  const height = 500;
+  const height = 400;
 
   const svg = d3.select('#gtdVis')
    .attr('width', width)
@@ -63,9 +63,6 @@ function gtdVis () {
       }
     })
 
-    console.log(points)
-
-
     const radius = d3.scaleSqrt()
       .domain([0, d3.max(points, d => d.properties.nkill)])
       .range([5, 15])
@@ -86,12 +83,13 @@ function gtdVis () {
 
   const tooltip = d3.select('#tooltip1')
     .attr('class', 'tooltip')
-    // .style('display', 'none');
 
   function mouseover(d) {
+    const summaryStr = d.properties.summary.replace(':', '') //get rid of the double ':'
+
     tooltip
       .style('display', 'inline')
-      .html('Fatalities: '  + d.properties.nkill + '<br>Location: ' + d.properties.city + ', ' + d.properties.provstate + '<br>Description: ' + d.properties.summary)
+      .html(`Fatalities: ${d.properties.nkill} <br> Location: ${d.properties.city}, ${d.properties.provstate} <br> Summary: ${summaryStr}`)
 
   }
 
@@ -101,3 +99,4 @@ function gtdVis () {
 }
 
 gtdVis()
+
